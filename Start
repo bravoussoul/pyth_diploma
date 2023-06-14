@@ -1,0 +1,33 @@
+import re
+
+# Predefined dataset
+documents = [
+    "Python is a popular programming language",
+    "Python is used for web development",
+    "JavaScript is widely used for frontend development",
+    "Machine learning is a subset of artificial intelligence",
+    "Data science involves analyzing and interpreting data",
+    "Java is an object-oriented programming language"
+]
+
+def search(query, documents):
+    results = []
+    for document in documents:
+        # Case-insensitive search
+        if re.search(query, document, re.IGNORECASE):
+            results.append(document)
+    return results
+
+# User input
+query = input("Enter your search query: ")
+
+# Perform search
+search_results = search(query, documents)
+
+# Display search results
+if search_results:
+    print("Search Results:")
+    for result in search_results:
+        print("-", result)
+else:
+    print("No results found.")
